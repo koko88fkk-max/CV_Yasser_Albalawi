@@ -80,25 +80,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 960px;
+      position: relative;
+      max-width: 920px;
       width: 100%;
-      height: 58px;
-      padding: 0 8px 0 18px;
-      background: rgba(9, 13, 22, 0.8);
+      height: 56px;
+      padding: 0 8px 0 16px;
+      background: rgba(9, 13, 22, 0.82);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 100px;
       box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html[dir="ltr"] .n-island {
-      padding: 0 18px 0 8px;
+      padding: 0 16px 0 8px;
     }
 
     .n-island.s {
-      background: rgba(9, 13, 22, 0.94);
+      background: rgba(9, 13, 22, 0.95);
       border-color: rgba(59, 130, 246, 0.35);
       box-shadow: 0 16px 40px -6px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(59, 130, 246, 0.15);
     }
@@ -112,21 +113,28 @@
       display: inline-flex;
       align-items: center;
       gap: 2px;
+      z-index: 2;
     }
 
     .n-l span {
       color: var(--accent);
     }
 
+    /* DEAD-CENTER LINKS */
     .n-r {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
       gap: 2px;
       list-style: none;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 4px;
+      padding: 3px;
       border-radius: 100px;
+      z-index: 1;
     }
 
     .n-r a {
@@ -134,10 +142,11 @@
       text-decoration: none;
       font-size: 13px;
       font-weight: 700;
-      padding: 7px 16px;
+      padding: 6px 14px;
       border-radius: 100px;
       transition: color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
       display: inline-block;
+      white-space: nowrap;
     }
 
     .n-r a:hover {
@@ -150,6 +159,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      z-index: 2;
     }
 
     /* Language Switcher Button */
