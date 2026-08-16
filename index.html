@@ -39,6 +39,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -54,7 +55,18 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, opacity 0.16s ease, filter 0.16s ease;
+    }
+
+    body.lang-fading {
+      opacity: 0.85;
+      filter: blur(0.8px);
+    }
+
+    /* ── MOBILE TOUCH & ACTIVE FEEDBACK ── */
+    button:active, .b:active, .ct-c:active, .n-cta:active, .n-lang:active, .s-top:active, .tl-link:active {
+      transform: scale(0.96) !important;
+      transition: transform 0.08s ease !important;
     }
 
     html[dir="ltr"] body {
@@ -2331,7 +2343,14 @@
     }
 
     function toggleLanguage() {
-      setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+      var nextLang = currentLang === 'ar' ? 'en' : 'ar';
+      document.body.classList.add('lang-fading');
+      setTimeout(function() {
+        setLanguage(nextLang);
+        setTimeout(function() {
+          document.body.classList.remove('lang-fading');
+        }, 40);
+      }, 110);
     }
 
     // Initialize saved language
