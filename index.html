@@ -231,29 +231,71 @@
       text-align: center;
     }
 
-    .h-tag {
+    .h-badge-box {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 12.5px;
+      gap: 10px;
+      font-size: 13px;
       font-weight: 700;
-      color: #60a5fa;
-      background: rgba(59, 130, 246, 0.1);
+      color: #93c5fd;
+      background: rgba(15, 23, 42, 0.75);
       border: 1px solid rgba(59, 130, 246, 0.25);
-      padding: 6px 16px;
-      border-radius: 100px;
+      padding: 7px 18px;
+      border-radius: 8px;
       margin-bottom: 24px;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
       opacity: 0;
       animation: hFade 0.6s var(--ease) 0.1s forwards;
+      transition: border-color 0.25s ease, transform 0.25s ease;
     }
 
-    .h-tag .dot {
-      width: 6px;
-      height: 6px;
-      background: #3b82f6;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #3b82f6;
+    .h-badge-box:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .h-badge-code {
+      font-family: monospace;
+      font-size: 12px;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-weight: 800;
+    }
+
+    .h-tech-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      max-width: 680px;
+      opacity: 0;
+      animation: hFade 0.7s var(--ease) 0.65s forwards;
+    }
+
+    .tech-pill {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .tech-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(59, 130, 246, 0.4);
+      transform: translateY(-1px);
     }
 
     .h-name {
@@ -1086,10 +1128,10 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="h-wrap">
-      <span class="h-tag">
-        <span class="dot"></span>
-        <span data-i18n="heroBadge">متاح للعمل والفرص الجديدة</span>
-      </span>
+      <div class="h-badge-box">
+        <span class="h-badge-code">&lt;/&gt;</span>
+        <span data-i18n="heroBadge">مطوّر واجهات ويب &bull; حلول تقنية متكاملة</span>
+      </div>
       <h1 class="h-name" data-i18n="heroName">ياسر محمد البلوي</h1>
       <p class="h-sub" data-i18n="heroSub">
         <strong>مطوّر واجهات ويب</strong> وأخصائي دعم فني وتقنية معلومات
@@ -1103,6 +1145,15 @@
         <a href="#exp" class="b b2">
           <span data-i18n="heroBtnExp">استعرض خبراتي</span>
         </a>
+      </div>
+      <div class="h-tech-strip">
+        <span class="tech-pill">JavaScript</span>
+        <span class="tech-pill">CSS3 &amp; HTML5</span>
+        <span class="tech-pill">Discord API &amp; Bots</span>
+        <span class="tech-pill">Webhooks</span>
+        <span class="tech-pill">Salla E-Commerce</span>
+        <span class="tech-pill">Prompt Engineering</span>
+        <span class="tech-pill">Windows Troubleshooting</span>
       </div>
     </div>
   </section>
@@ -1427,7 +1478,7 @@
         navSkills: "المهارات",
         navEdu: "التعليم",
         navContact: "تواصل معي",
-        heroBadge: "متاح للعمل والفرص الجديدة",
+        heroBadge: "مطوّر واجهات ويب &bull; حلول تقنية متكاملة",
         heroName: "ياسر محمد البلوي",
         heroSub: "<strong>مطوّر واجهات ويب</strong> وأخصائي دعم فني وتقنية معلومات<br>خبرة تزيد عن 4 سنوات في بناء المنصات الرقمية، أتمتة العمليات، وحل المشكلات التقنية",
         heroBtnContact: "تواصل معي",
@@ -1495,7 +1546,7 @@
         navSkills: "Skills",
         navEdu: "Education",
         navContact: "Contact Me",
-        heroBadge: "Available for Work & New Opportunities",
+        heroBadge: "Front-End Developer &bull; IT &amp; Web Solutions",
         heroName: "Yasser Mohammed Albalawi",
         heroSub: "<strong>Front-End Web Developer</strong> & IT Technical Support Specialist<br>4+ years of hands-on experience building digital platforms, automating workflows, and technical troubleshooting",
         heroBtnContact: "Contact Me",
