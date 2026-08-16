@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ياسر محمد البلوي — مطوّر واجهات ويب وأخصائي تقنية</title>
+  <title id="pageTitle">ياسر محمد البلوي — مطوّر واجهات ويب وأخصائي تقنية</title>
   <meta name="description" content="الموقع الشخصي لياسر محمد البلوي — مطوّر واجهات ويب وأخصائي دعم فني وتقنية معلومات">
   <meta property="og:title" content="ياسر محمد البلوي — مطوّر واجهات ويب">
   <meta property="og:description" content="مطوّر واجهات ويب وأخصائي دعم فني — خبرة +4 سنوات في التقنية والمنصات الرقمية">
@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://cv-yasser-albalawi.vercel.app/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --c1: #090d16;
@@ -46,13 +46,20 @@
     }
 
     body {
-      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      font-family: 'IBM Plex Sans Arabic', 'Plus Jakarta Sans', sans-serif;
       color: var(--t5);
       background: var(--bg);
       direction: rtl;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      transition: background 0.3s ease;
+    }
+
+    html[dir="ltr"] body {
+      font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', sans-serif;
+      direction: ltr;
+      text-align: left;
     }
 
     /* ── NAVIGATION ── */
@@ -67,7 +74,7 @@
       align-items: center;
       justify-content: center;
       padding: 0 24px;
-      transition: all 0.35s var(--ease);
+      transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
       background: transparent;
     }
 
@@ -106,13 +113,13 @@
     }
 
     .n-r a {
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       font-size: 13.5px;
       font-weight: 600;
-      padding: 8px 16px;
+      padding: 8px 14px;
       border-radius: 6px;
-      transition: all 0.2s var(--ease);
+      transition: color 0.2s var(--ease), background 0.2s var(--ease);
     }
 
     .n-r a:hover {
@@ -130,6 +137,36 @@
     .n-cta:hover {
       background: var(--accent-dim) !important;
       box-shadow: 0 4px 16px rgba(59, 130, 246, 0.5);
+    }
+
+    /* Language Switcher Button */
+    .n-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      padding: 7px 13px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      user-select: none;
+    }
+
+    .n-lang:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-1px);
+    }
+
+    .n-lang svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.85;
     }
 
     .n-m {
@@ -154,7 +191,7 @@
       overflow: hidden;
     }
 
-    /* GRID PATTERN (الخطوط المربعة) */
+    /* Grid blueprint pattern */
     .hero::before {
       content: '';
       position: absolute;
@@ -183,7 +220,7 @@
     }
 
     .h-wrap {
-      max-width: 780px;
+      max-width: 800px;
       width: 100%;
       margin: 0 auto;
       position: relative;
@@ -198,7 +235,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
+      font-size: 12.5px;
       font-weight: 700;
       color: #60a5fa;
       background: rgba(59, 130, 246, 0.1);
@@ -217,7 +254,6 @@
       background: #3b82f6;
       border-radius: 50%;
       box-shadow: 0 0 8px #3b82f6;
-      animation: pulseDot 2s ease infinite;
     }
 
     .h-name {
@@ -236,7 +272,7 @@
       font-size: clamp(15.5px, 2.2vw, 19px);
       color: var(--t2);
       line-height: 1.75;
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 auto 36px;
       text-align: center;
       opacity: 0;
@@ -303,13 +339,8 @@
     }
 
     @keyframes hFade {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     /* ── SECTIONS ── */
@@ -390,7 +421,7 @@
       padding: 22px 18px;
       text-align: center;
       background: var(--card);
-      transition: all 0.3s var(--ease);
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
     }
 
     .num-c:hover {
@@ -432,10 +463,20 @@
       border-radius: 1px;
     }
 
+    html[dir="ltr"] .tl::before {
+      right: auto;
+      left: 0;
+    }
+
     .tl-i {
       position: relative;
       padding-right: 36px;
       padding-bottom: 36px;
+    }
+
+    html[dir="ltr"] .tl-i {
+      padding-right: 0;
+      padding-left: 36px;
     }
 
     .tl-i:last-child {
@@ -452,7 +493,12 @@
       border: 3px solid var(--accent);
       background: #ffffff;
       z-index: 2;
-      transition: all 0.25s var(--ease);
+      transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    }
+
+    html[dir="ltr"] .tl-dot {
+      right: auto;
+      left: -6px;
     }
 
     .tl-i:hover .tl-dot {
@@ -465,13 +511,17 @@
       border-radius: 12px;
       padding: 26px;
       background: var(--card);
-      transition: all 0.3s var(--ease);
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
     }
 
     .tl-c:hover {
       border-color: #93c5fd;
       box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
       transform: translateX(-4px);
+    }
+
+    html[dir="ltr"] .tl-c:hover {
+      transform: translateX(4px);
     }
 
     .tl-top {
@@ -515,7 +565,11 @@
       color: var(--t6);
       padding-right: 16px;
       position: relative;
-      unicode-bidi: isolate;
+    }
+
+    html[dir="ltr"] .tl-ul li {
+      padding-right: 0;
+      padding-left: 16px;
     }
 
     .tl-ul li::before {
@@ -529,10 +583,9 @@
       background: var(--accent);
     }
 
-    .isolate-term {
-      direction: ltr;
-      display: inline-block;
-      font-weight: 600;
+    html[dir="ltr"] .tl-ul li::before {
+      right: auto;
+      left: 0;
     }
 
     /* ── SKILLS ── */
@@ -549,7 +602,7 @@
       background: var(--card);
       position: relative;
       overflow: hidden;
-      transition: all 0.35s var(--ease);
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
     }
 
     .sk-c::after {
@@ -561,6 +614,11 @@
       height: 0;
       background: var(--accent);
       transition: height 0.35s var(--ease);
+    }
+
+    html[dir="ltr"] .sk-c::after {
+      right: auto;
+      left: 0;
     }
 
     .sk-c:hover {
@@ -583,7 +641,7 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 16px;
-      transition: all 0.3s var(--ease);
+      transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
     }
 
     .sk-c:hover .sk-ic {
@@ -595,7 +653,7 @@
       width: 22px;
       height: 22px;
       color: var(--accent-dim);
-      transition: color 0.3s var(--ease);
+      transition: color 0.25s var(--ease);
     }
 
     .sk-c:hover .sk-ic svg {
@@ -627,7 +685,7 @@
       border-radius: 14px;
       padding: 32px 28px;
       background: var(--card);
-      transition: all 0.3s var(--ease);
+      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -776,7 +834,7 @@
       height: 100%;
       background: linear-gradient(90deg, #2563eb, #3b82f6);
       border-radius: 100px;
-      transition: width 1s var(--ease);
+      transition: width 0.8s var(--ease);
     }
 
     /* ── CTA SECTION ── */
@@ -788,7 +846,6 @@
       overflow: hidden;
     }
 
-    /* GRID ON CTA (الخطوط المربعة بالجزء السفلي) */
     .cta::before {
       content: '';
       position: absolute;
@@ -875,11 +932,12 @@
       font-weight: 500;
     }
 
-    /* ── SCROLL REVEAL ── */
+    /* ── NATURAL ORGANIC SCROLL REVEAL ── */
     .rv {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+      transform: translateY(16px);
+      transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+      will-change: opacity, transform;
     }
 
     .rv.v {
@@ -887,9 +945,9 @@
       transform: translateY(0);
     }
 
-    .rv-d1 { transition-delay: 0.08s; }
-    .rv-d2 { transition-delay: 0.16s; }
-    .rv-d3 { transition-delay: 0.24s; }
+    .rv-d1 { transition-delay: 0.06s; }
+    .rv-d2 { transition-delay: 0.12s; }
+    .rv-d3 { transition-delay: 0.18s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
@@ -900,8 +958,11 @@
       .sk-g { grid-template-columns: 1fr 1fr; }
       .inf-g { grid-template-columns: 1fr; }
       .tl::before { right: -2px; }
+      html[dir="ltr"] .tl::before { left: -2px; right: auto; }
       .tl-dot { right: -8px; }
+      html[dir="ltr"] .tl-dot { left: -8px; right: auto; }
       .tl-i { padding-right: 26px; }
+      html[dir="ltr"] .tl-i { padding-left: 26px; padding-right: 0; }
     }
 
     @media (max-width: 580px) {
@@ -924,10 +985,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s var(--ease);
+      transition: opacity 0.3s var(--ease);
     }
 
     .mo.op {
@@ -942,12 +1003,27 @@
       font-weight: 700;
       padding: 12px 30px;
       border-radius: 8px;
-      transition: all 0.2s var(--ease);
+      transition: color 0.2s var(--ease);
     }
 
     .mo a:hover {
       background: rgba(255, 255, 255, 0.08);
       color: var(--accent);
+    }
+
+    .mo-lang {
+      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     .mo-x {
@@ -967,13 +1043,23 @@
   <!-- NAVIGATION -->
   <nav class="n" id="nv">
     <div class="n-wrap">
-      <a href="#" class="n-l">ياسر<span>.</span></a>
+      <a href="#" class="n-l"><span data-i18n="logoName">ياسر</span><span>.</span></a>
       <ul class="n-r">
-        <li><a href="#about">نبذة عني</a></li>
-        <li><a href="#exp">الخبرات</a></li>
-        <li><a href="#sk">المهارات</a></li>
-        <li><a href="#edu">التعليم</a></li>
-        <li><a href="#cta" class="n-cta">تواصل معي</a></li>
+        <li><a href="#about" data-i18n="navAbout">نبذة عني</a></li>
+        <li><a href="#exp" data-i18n="navExp">الخبرات</a></li>
+        <li><a href="#sk" data-i18n="navSkills">المهارات</a></li>
+        <li><a href="#edu" data-i18n="navEdu">التعليم</a></li>
+        <li><a href="#cta" class="n-cta" data-i18n="navContact">تواصل معي</a></li>
+        <li>
+          <!-- Language Switcher Desktop -->
+          <button id="langBtn" class="n-lang" onclick="toggleLanguage()" aria-label="تبديل اللغة / Switch Language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/>
+            </svg>
+            <span id="langBtnText">English</span>
+          </button>
+        </li>
       </ul>
       <button class="n-m" onclick="document.getElementById('mo').classList.add('op')" aria-label="القائمة">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -986,11 +1072,15 @@
     <button class="mo-x" onclick="this.parentElement.classList.remove('op')">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <a href="#about" onclick="this.parentElement.classList.remove('op')">نبذة عني</a>
-    <a href="#exp" onclick="this.parentElement.classList.remove('op')">الخبرات</a>
-    <a href="#sk" onclick="this.parentElement.classList.remove('op')">المهارات</a>
-    <a href="#edu" onclick="this.parentElement.classList.remove('op')">التعليم</a>
-    <a href="#cta" onclick="this.parentElement.classList.remove('op')">تواصل معي</a>
+    <a href="#about" onclick="this.parentElement.classList.remove('op')" data-i18n="navAbout">نبذة عني</a>
+    <a href="#exp" onclick="this.parentElement.classList.remove('op')" data-i18n="navExp">الخبرات</a>
+    <a href="#sk" onclick="this.parentElement.classList.remove('op')" data-i18n="navSkills">المهارات</a>
+    <a href="#edu" onclick="this.parentElement.classList.remove('op')" data-i18n="navEdu">التعليم</a>
+    <a href="#cta" onclick="this.parentElement.classList.remove('op')" data-i18n="navContact">تواصل معي</a>
+    <button class="mo-lang" onclick="toggleLanguage(); document.getElementById('mo').classList.remove('op');">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+      <span id="moLangBtnText">English</span>
+    </button>
   </div>
 
   <!-- HERO -->
@@ -998,20 +1088,20 @@
     <div class="h-wrap">
       <span class="h-tag">
         <span class="dot"></span>
-        متاح للعمل والفرص الجديدة
+        <span data-i18n="heroBadge">متاح للعمل والفرص الجديدة</span>
       </span>
-      <h1 class="h-name">ياسر محمد البلوي</h1>
-      <p class="h-sub">
+      <h1 class="h-name" data-i18n="heroName">ياسر محمد البلوي</h1>
+      <p class="h-sub" data-i18n="heroSub">
         <strong>مطوّر واجهات ويب</strong> وأخصائي دعم فني وتقنية معلومات
         <br>خبرة تزيد عن 4 سنوات في بناء المنصات الرقمية، أتمتة العمليات، وحل المشكلات التقنية
       </p>
       <div class="h-btns">
         <a href="#cta" class="b b1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
-          تواصل معي
+          <span data-i18n="heroBtnContact">تواصل معي</span>
         </a>
         <a href="#exp" class="b b2">
-          استعرض خبراتي
+          <span data-i18n="heroBtnExp">استعرض خبراتي</span>
         </a>
       </div>
     </div>
@@ -1021,30 +1111,30 @@
   <section class="sec sec-d" id="about">
     <div class="wrap">
       <div class="sec-h rv">
-        <span class="sec-lab">نبذة عني</span>
-        <h2 class="sec-t">من أنا</h2>
+        <span class="sec-lab" data-i18n="aboutLabel">نبذة عني</span>
+        <h2 class="sec-t" data-i18n="aboutTitle">من أنا</h2>
       </div>
       <div class="ab-g">
         <div class="rv rv-d1">
-          <p class="ab-p">متخصص في الدعم الفني وتطوير واجهات الويب وحلول التجارة الإلكترونية. أمتلك خبرة عملية لأكثر من 4 سنوات في التعامل مع أنظمة التشغيل وحل المشكلات التقنية وتوظيف أدوات الذكاء الاصطناعي لرفع كفاءة وسرعة العمل.</p>
-          <p class="ab-p">أسست وأدرت متجر ومنصة t3n الرقمية وحققت مبيعات تجاوزت 10,000 ريال سعودي بأكثر من 100 تقييم إيجابي موثق، مع إتقان كامل لأتمتة العمليات عبر بوتات Discord، وإدارة بوابات الدفع الإلكتروني، وحل مشكلات الأنظمة بكفاءة عالية.</p>
+          <p class="ab-p" data-i18n="aboutP1">متخصص في الدعم الفني وتطوير واجهات الويب وحلول التجارة الإلكترونية. أمتلك خبرة عملية لأكثر من 4 سنوات في التعامل مع أنظمة التشغيل وحل المشكلات التقنية وتوظيف أدوات الذكاء الاصطناعي لرفع كفاءة وسرعة العمل.</p>
+          <p class="ab-p" data-i18n="aboutP2">أسست وأدرت متجر ومنصة t3n الرقمية وحققت مبيعات تجاوزت 10,000 ريال سعودي بأكثر من 100 تقييم إيجابي موثق، مع إتقان كامل لأتمتة العمليات عبر بوتات Discord، وإدارة بوابات الدفع الإلكتروني، وحل مشكلات الأنظمة بكفاءة عالية.</p>
         </div>
         <div class="ab-nums rv rv-d2">
           <div class="num-c">
             <div class="num-v">+4</div>
-            <div class="num-l">سنوات خبرة</div>
+            <div class="num-l" data-i18n="stat1">سنوات خبرة</div>
           </div>
           <div class="num-c">
             <div class="num-v">+100</div>
-            <div class="num-l">عميل</div>
+            <div class="num-l" data-i18n="stat2">عميل</div>
           </div>
           <div class="num-c">
             <div class="num-v">10K+</div>
-            <div class="num-l">إنجاز ومبيعات</div>
+            <div class="num-l" data-i18n="stat3">إنجاز ومبيعات</div>
           </div>
           <div class="num-c">
             <div class="num-v">24/7</div>
-            <div class="num-l">دعم متواصل</div>
+            <div class="num-l" data-i18n="stat4">دعم متواصل</div>
           </div>
         </div>
       </div>
@@ -1055,37 +1145,40 @@
   <section class="sec" id="exp">
     <div class="wrap">
       <div class="sec-h rv">
-        <span class="sec-lab">الخبرات</span>
-        <h2 class="sec-t">المشاريع والخبرات العملية</h2>
+        <span class="sec-lab" data-i18n="expLabel">الخبرات</span>
+        <h2 class="sec-t" data-i18n="expTitle">المشاريع والخبرات العملية</h2>
       </div>
       <div class="tl">
+        <!-- Experience 1 -->
         <div class="tl-i rv rv-d1">
           <div class="tl-dot"></div>
           <div class="tl-c">
             <div class="tl-top">
-              <h3 class="tl-role">مؤسس ومطوّر متجر ومنصة t3n الرقمية</h3>
-              <span class="tl-meta">تبوك، السعودية | مشروع ريادي</span>
+              <h3 class="tl-role" data-i18n="exp1Role">مؤسس ومطوّر متجر ومنصة t3n الرقمية</h3>
+              <span class="tl-meta" data-i18n="exp1Meta">تبوك، السعودية | مشروع ريادي</span>
             </div>
             <ul class="tl-ul">
-              <li>تطوير وإطلاق منصة ويب تفاعلية مخصصة لتسليم التراخيص البرمجية والملفات والشروحات الفنية للمشترين بسرعة واستقرار.</li>
-              <li>إدارة متجر الشراء والعمليات عبر منصة سلة، وتهيئة بوابات الدفع الإلكتروني (Apple Pay، مدى، التحويلات البنكية).</li>
-              <li>تحقيق مبيعات تجاوزت 10,000 ريال سعودي ونيل أكثر من 100 تقييم إيجابي موثق يبرز جودة الخدمة وسرعة الاستجابة.</li>
-              <li>برمجة وتطوير بوتات Discord ونظام تذاكر دعم فني مؤتمت بالكامل يرسل إشعارات فورية لتقليل التدخل اليدوي وتسهيل تجربة العميل.</li>
-              <li>قيادة الحملات التسويقية وصناعة المحتوى الرقمي عبر TikTok لجذب العملاء وتحقيق مبيعات مباشرة ومستمرة.</li>
-              <li>تصميم واجهات المستخدم وكتابة أدلة الاستخدام التوثيقية لضمان سهولة تشغيل المنتجات.</li>
+              <li data-i18n="exp1_1">تطوير وإطلاق منصة ويب تفاعلية مخصصة لتسليم التراخيص البرمجية والملفات والشروحات الفنية للمشترين بسرعة واستقرار.</li>
+              <li data-i18n="exp1_2">إدارة متجر الشراء والعمليات عبر منصة سلة، وتهيئة بوابات الدفع الإلكتروني (Apple Pay، مدى، التحويلات البنكية).</li>
+              <li data-i18n="exp1_3">تحقيق مبيعات تجاوزت 10,000 ريال سعودي ونيل أكثر من 100 تقييم إيجابي موثق يبرز جودة الخدمة وسرعة الاستجابة.</li>
+              <li data-i18n="exp1_4">برمجة وتطوير بوتات Discord ونظام تذاكر دعم فني مؤتمت بالكامل يرسل إشعارات فورية لتقليل التدخل اليدوي وتسهيل تجربة العميل.</li>
+              <li data-i18n="exp1_5">قيادة الحملات التسويقية وصناعة المحتوى الرقمي عبر TikTok لجذب العملاء وتحقيق مبيعات مباشرة ومستمرة.</li>
+              <li data-i18n="exp1_6">تصميم واجهات المستخدم وكتابة أدلة الاستخدام التوثيقية لضمان سهولة تشغيل المنتجات.</li>
             </ul>
           </div>
         </div>
+
+        <!-- Experience 2 -->
         <div class="tl-i rv rv-d2">
           <div class="tl-dot"></div>
           <div class="tl-c">
             <div class="tl-top">
-              <h3 class="tl-role">الدعم الفني وتشخيص أنظمة الحاسب</h3>
-              <span class="tl-meta">خبرة 4 سنوات | عمل حر ومستقل</span>
+              <h3 class="tl-role" data-i18n="exp2Role">الدعم الفني وتشخيص أنظمة الحاسب</h3>
+              <span class="tl-meta" data-i18n="exp2Meta">خبرة 4 سنوات | عمل حر ومستقل</span>
             </div>
             <ul class="tl-ul">
-              <li>تقديم الدعم التقني المباشر للمستخدمين ومساعدتهم في ضبط إعدادات أنظمة Windows ومعرّفات الأجهزة <span class="isolate-term">(HWID / OS Tweaks)</span>.</li>
-              <li>فحص وتصحيح الأخطاء البرمجية للواجهات (Debugging) ومعالجة مشاكل التوافق عبر المتصفحات والشاشات بكفاءة وسرعة.</li>
+              <li data-i18n="exp2_1">تقديم الدعم التقني المباشر للمستخدمين ومساعدتهم في ضبط إعدادات أنظمة Windows ومعرّفات الأجهزة (HWID / OS Tweaks).</li>
+              <li data-i18n="exp2_2">فحص وتصحيح الأخطاء البرمجية للواجهات (Debugging) ومعالجة مشاكل التوافق عبر المتصفحات والشاشات بكفاءة وسرعة.</li>
             </ul>
           </div>
         </div>
@@ -1097,8 +1190,8 @@
   <section class="sec sec-d" id="sk">
     <div class="wrap">
       <div class="sec-h rv">
-        <span class="sec-lab">المهارات</span>
-        <h2 class="sec-t">المهارات التقنية والتشغيلية</h2>
+        <span class="sec-lab" data-i18n="skillsLabel">المهارات</span>
+        <h2 class="sec-t" data-i18n="skillsTitle">المهارات التقنية والتشغيلية</h2>
       </div>
       <div class="sk-g">
         <!-- 1. تطوير الويب -->
@@ -1114,8 +1207,8 @@
               <path d="m13 12-2 6"/>
             </svg>
           </div>
-          <h3>تطوير الويب</h3>
-          <p>بناء الواجهات التفاعلية، تعديل وتصحيح الأكواد البرمجية وصيانتها بكفاءة واحترافية.</p>
+          <h3 data-i18n="sk1Title">تطوير الويب</h3>
+          <p data-i18n="sk1Desc">بناء الواجهات التفاعلية، تعديل وتصحيح الأكواد البرمجية وصيانتها بكفاءة واحترافية.</p>
         </div>
 
         <!-- 2. الأتمتة والربط الرقمي -->
@@ -1130,8 +1223,8 @@
               <path d="M12 12v3"/>
             </svg>
           </div>
-          <h3>الأتمتة والربط الرقمي</h3>
-          <p>برمجة بوتات Discord، إعداد Webhooks، وبناء أنظمة الدعم الفني المؤتمتة.</p>
+          <h3 data-i18n="sk2Title">الأتمتة والربط الرقمي</h3>
+          <p data-i18n="sk2Desc">برمجة بوتات Discord، إعداد Webhooks، وبناء أنظمة الدعم الفني المؤتمتة.</p>
         </div>
 
         <!-- 3. التجارة الإلكترونية -->
@@ -1144,8 +1237,8 @@
               <path d="m9 14.5 2 2 4-4"/>
             </svg>
           </div>
-          <h3>التجارة الإلكترونية</h3>
-          <p>إدارة متاجر سلة، الربط مع بوابات الدفع، وإدارة المبيعات والتراخيص الرقمية.</p>
+          <h3 data-i18n="sk3Title">التجارة الإلكترونية</h3>
+          <p data-i18n="sk3Desc">إدارة متاجر سلة، الربط مع بوابات الدفع، وإدارة المبيعات والتراخيص الرقمية.</p>
         </div>
 
         <!-- 4. أدوات الذكاء الاصطناعي -->
@@ -1159,8 +1252,8 @@
               <path d="M17.5 18.5h3"/>
             </svg>
           </div>
-          <h3>أدوات الذكاء الاصطناعي</h3>
-          <p>هندسة الأوامر (Prompting) وتسريع كتابة البرمجيات وحل المشكلات التقنية.</p>
+          <h3 data-i18n="sk4Title">أدوات الذكاء الاصطناعي</h3>
+          <p data-i18n="sk4Desc">هندسة الأوامر (Prompting) وتسريع كتابة البرمجيات وحل المشكلات التقنية.</p>
         </div>
 
         <!-- 5. التسويق الرقمي -->
@@ -1174,8 +1267,8 @@
               <path d="M21 9a3.5 3.5 0 0 1 0 6"/>
             </svg>
           </div>
-          <h3>التسويق الرقمي</h3>
-          <p>صناعة المحتوى على TikTok وإدارة المجتمعات التقنية وسيرفرات Discord.</p>
+          <h3 data-i18n="sk5Title">التسويق الرقمي</h3>
+          <p data-i18n="sk5Desc">صناعة المحتوى على TikTok وإدارة المجتمعات التقنية وسيرفرات Discord.</p>
         </div>
 
         <!-- 6. الدعم الفني والأنظمة -->
@@ -1189,8 +1282,8 @@
               <path d="M12.5 13h4"/>
             </svg>
           </div>
-          <h3>الدعم الفني والأنظمة</h3>
-          <p>تشخيص أعطال الأنظمة (Troubleshooting)، الدقة والسرعة في الاستجابة والحل.</p>
+          <h3 data-i18n="sk6Title">الدعم الفني والأنظمة</h3>
+          <p data-i18n="sk6Desc">تشخيص أعطال الأنظمة (Troubleshooting)، الدقة والسرعة في الاستجابة والحل.</p>
         </div>
       </div>
     </div>
@@ -1200,8 +1293,8 @@
   <section class="sec" id="edu">
     <div class="wrap">
       <div class="sec-h rv">
-        <span class="sec-lab">التعليم واللغات</span>
-        <h2 class="sec-t">المؤهلات</h2>
+        <span class="sec-lab" data-i18n="eduLabel">التعليم واللغات</span>
+        <h2 class="sec-t" data-i18n="eduTitle">المؤهلات</h2>
       </div>
       <div class="inf-g">
         <!-- التعليم -->
@@ -1214,25 +1307,25 @@
                   <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
                 </svg>
               </div>
-              <h3 class="inf-h">التعليم والمؤهلات</h3>
+              <h3 class="inf-h" data-i18n="eduCardTitle">التعليم والمؤهلات</h3>
             </div>
             
             <div class="edu-main">
-              <h4 class="edu-title">شهادة الثانوية العامة</h4>
+              <h4 class="edu-title" data-i18n="eduDegree">شهادة الثانوية العامة</h4>
               <span class="edu-loc">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                تبوك، المملكة العربية السعودية
+                <span data-i18n="eduLoc">تبوك، المملكة العربية السعودية</span>
               </span>
             </div>
 
             <ul class="edu-list">
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>شغف وتطوير ذاتي مستمر:</strong> تركيز عميق على تعلّم تقنيات الويب الحديثة، إدارة المتاجر، وأتمتة المهام البرمجية.</span>
+                <span data-i18n="eduPoint1"><strong>شغف وتطوير ذاتي مستمر:</strong> تركيز عميق على تعلّم تقنيات الويب الحديثة، إدارة المتاجر، وأتمتة المهام البرمجية.</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <span><strong>خبرة تطبيقية ميدانية:</strong> بناء وإدارة مشاريع حقيقية وتقديم الدعم الفني المباشر للعملاء والأنظمة.</span>
+                <span data-i18n="eduPoint2"><strong>خبرة تطبيقية ميدانية:</strong> بناء وإدارة مشاريع حقيقية وتقديم الدعم الفني المباشر للعملاء والأنظمة.</span>
               </li>
             </ul>
           </div>
@@ -1246,19 +1339,19 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="12" cy="12" r="10"/>
                   <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/>
                 </svg>
               </div>
-              <h3 class="inf-h">اللغات والكفاءة</h3>
+              <h3 class="inf-h" data-i18n="langCardTitle">اللغات والكفاءة</h3>
             </div>
 
             <!-- العربية -->
             <div class="lang-item">
               <div class="lang-head">
-                <span class="lang-name">اللغة العربية</span>
-                <span class="lang-badge">اللغة الأم (إتقان تام)</span>
+                <span class="lang-name" data-i18n="langAr">اللغة العربية</span>
+                <span class="lang-badge" data-i18n="langArBadge">اللغة الأم (إتقان تام)</span>
               </div>
-              <p class="lang-desc">تواصل مهني متقن، صياغة تقارير وأدلة استخدام وتفاعل ممتاز مع العملاء.</p>
+              <p class="lang-desc" data-i18n="langArDesc">تواصل مهني متقن، صياغة تقارير وأدلة استخدام وتفاعل ممتاز مع العملاء.</p>
               <div class="lang-bar">
                 <div class="lang-fill" style="width: 100%;"></div>
               </div>
@@ -1267,10 +1360,10 @@
             <!-- الإنجليزية -->
             <div class="lang-item">
               <div class="lang-head">
-                <span class="lang-name">اللغة الإنجليزية</span>
-                <span class="lang-badge">مبتدئ</span>
+                <span class="lang-name" data-i18n="langEn">اللغة الإنجليزية</span>
+                <span class="lang-badge" data-i18n="langEnBadge">مبتدئ</span>
               </div>
-              <p class="lang-desc">معرفة تامة بالمصطلحات التقنية والبرمجية، قراءة التوثيقات (Docs)، وكتابة الأوامر.</p>
+              <p class="lang-desc" data-i18n="langEnDesc">معرفة تامة بالمصطلحات التقنية والبرمجية، قراءة التوثيقات (Docs)، وكتابة الأوامر.</p>
               <div class="lang-bar">
                 <div class="lang-fill" style="width: 45%;"></div>
               </div>
@@ -1284,38 +1377,220 @@
   <!-- CTA -->
   <section class="cta" id="cta">
     <div class="cta-w rv">
-      <h2 class="cta-t">عندك مشروع أو فرصة عمل؟</h2>
-      <p class="cta-p">جاهز للتعاون وإنجاز العمل بكفاءة عالية. تواصل معي مباشرة.</p>
+      <h2 class="cta-t" data-i18n="ctaTitle">عندك مشروع أو فرصة عمل؟</h2>
+      <p class="cta-p" data-i18n="ctaDesc">جاهز للتعاون وإنجاز العمل بكفاءة عالية. تواصل معي مباشرة.</p>
       <div class="ct-cards">
         <a href="mailto:yasemoh24@gmail.com" class="ct-c">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
-          yasemoh24@gmail.com
+          <span>yasemoh24@gmail.com</span>
         </a>
         <a href="tel:0506932102" class="ct-c">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          0506932102
+          <span style="direction: ltr;">0506932102</span>
         </a>
-        <a href="https://t3nnn.com" target="_blank" rel="noopener" class="ct-c">
+        <a href="https://t3nnn.com" target="_blank" rel="noopener noreferrer" class="ct-c">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
-          t3nnn.com
+          <span>t3nnn.com</span>
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="ft"><p>ياسر محمد البلوي &copy; 2024 — جميع الحقوق محفوظة</p></footer>
+  <footer class="ft">
+    <p data-i18n="footerText">ياسر محمد البلوي &copy; 2024 — جميع الحقوق محفوظة</p>
+  </footer>
 
+  <!-- JAVASCRIPT & BILINGUAL ENGINE -->
   <script>
+    // ── SCROLL NAVBAR ──
     var nv = document.getElementById('nv');
     window.addEventListener('scroll', function() {
       nv.classList.toggle('s', window.scrollY > 40);
     });
+
+    // ── SCROLL REVEAL (Natural & Subtle) ──
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) entry.target.classList.add('v');
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
     document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
+
+    // ── BILINGUAL TRANSLATIONS DICTIONARY ──
+    var translations = {
+      ar: {
+        pageTitle: "ياسر محمد البلوي — مطوّر واجهات ويب وأخصائي تقنية",
+        logoName: "ياسر",
+        langBtn: "English",
+        navAbout: "نبذة عني",
+        navExp: "الخبرات",
+        navSkills: "المهارات",
+        navEdu: "التعليم",
+        navContact: "تواصل معي",
+        heroBadge: "متاح للعمل والفرص الجديدة",
+        heroName: "ياسر محمد البلوي",
+        heroSub: "<strong>مطوّر واجهات ويب</strong> وأخصائي دعم فني وتقنية معلومات<br>خبرة تزيد عن 4 سنوات في بناء المنصات الرقمية، أتمتة العمليات، وحل المشكلات التقنية",
+        heroBtnContact: "تواصل معي",
+        heroBtnExp: "استعرض خبراتي",
+        aboutLabel: "نبذة عني",
+        aboutTitle: "من أنا",
+        aboutP1: "متخصص في الدعم الفني وتطوير واجهات الويب وحلول التجارة الإلكترونية. أمتلك خبرة عملية لأكثر من 4 سنوات في التعامل مع أنظمة التشغيل وحل المشكلات التقنية وتوظيف أدوات الذكاء الاصطناعي لرفع كفاءة وسرعة العمل.",
+        aboutP2: "أسست وأدرت متجر ومنصة t3n الرقمية وحققت مبيعات تجاوزت 10,000 ريال سعودي بأكثر من 100 تقييم إيجابي موثق، مع إتقان كامل لأتمتة العمليات عبر بوتات Discord، وإدارة بوابات الدفع الإلكتروني، وحل مشكلات الأنظمة بكفاءة عالية.",
+        stat1: "سنوات خبرة",
+        stat2: "عميل",
+        stat3: "إنجاز ومبيعات",
+        stat4: "دعم متواصل",
+        expLabel: "الخبرات",
+        expTitle: "المشاريع والخبرات العملية",
+        exp1Role: "مؤسس ومطوّر متجر ومنصة t3n الرقمية",
+        exp1Meta: "تبوك، السعودية | مشروع ريادي",
+        exp1_1: "تطوير وإطلاق منصة ويب تفاعلية مخصصة لتسليم التراخيص البرمجية والملفات والشروحات الفنية للمشترين بسرعة واستقرار.",
+        exp1_2: "إدارة متجر الشراء والعمليات عبر منصة سلة، وتهيئة بوابات الدفع الإلكتروني (Apple Pay، مدى، التحويلات البنكية).",
+        exp1_3: "تحقيق مبيعات تجاوزت 10,000 ريال سعودي ونيل أكثر من 100 تقييم إيجابي موثق يبرز جودة الخدمة وسرعة الاستجابة.",
+        exp1_4: "برمجة وتطوير بوتات Discord ونظام تذاكر دعم فني مؤتمت بالكامل يرسل إشعارات فورية لتقليل التدخل اليدوي وتسهيل تجربة العميل.",
+        exp1_5: "قيادة الحملات التسويقية وصناعة المحتوى الرقمي عبر TikTok لجذب العملاء وتحقيق مبيعات مباشرة ومستمرة.",
+        exp1_6: "تصميم واجهات المستخدم وكتابة أدلة الاستخدام التوثيقية لضمان سهولة تشغيل المنتجات.",
+        exp2Role: "الدعم الفني وتشخيص أنظمة الحاسب",
+        exp2Meta: "خبرة 4 سنوات | عمل حر ومستقل",
+        exp2_1: "تقديم الدعم التقني المباشر للمستخدمين ومساعدتهم في ضبط إعدادات أنظمة Windows ومعرّفات الأجهزة (HWID / OS Tweaks).",
+        exp2_2: "فحص وتصحيح الأخطاء البرمجية للواجهات (Debugging) ومعالجة مشاكل التوافق عبر المتصفحات والشاشات بكفاءة وسرعة.",
+        skillsLabel: "المهارات",
+        skillsTitle: "المهارات التقنية والتشغيلية",
+        sk1Title: "تطوير الويب",
+        sk1Desc: "بناء الواجهات التفاعلية، تعديل وتصحيح الأكواد البرمجية وصيانتها بكفاءة واحترافية.",
+        sk2Title: "الأتمتة والربط الرقمي",
+        sk2Desc: "برمجة بوتات Discord، إعداد Webhooks، وبناء أنظمة الدعم الفني المؤتمتة.",
+        sk3Title: "التجارة الإلكترونية",
+        sk3Desc: "إدارة متاجر سلة، الربط مع بوابات الدفع، وإدارة المبيعات والتراخيص الرقمية.",
+        sk4Title: "أدوات الذكاء الاصطناعي",
+        sk4Desc: "هندسة الأوامر (Prompting) وتسريع كتابة البرمجيات وحل المشكلات التقنية.",
+        sk5Title: "التسويق الرقمي",
+        sk5Desc: "صناعة المحتوى على TikTok وإدارة المجتمعات التقنية وسيرفرات Discord.",
+        sk6Title: "الدعم الفني والأنظمة",
+        sk6Desc: "تشخيص أعطال الأنظمة (Troubleshooting)، الدقة والسرعة في الاستجابة والحل.",
+        eduLabel: "التعليم واللغات",
+        eduTitle: "المؤهلات",
+        eduCardTitle: "التعليم والمؤهلات",
+        eduDegree: "شهادة الثانوية العامة",
+        eduLoc: "تبوك، المملكة العربية السعودية",
+        eduPoint1: "<strong>شغف وتطوير ذاتي مستمر:</strong> تركيز عميق على تعلّم تقنيات الويب الحديثة، إدارة المتاجر، وأتمتة المهام البرمجية.",
+        eduPoint2: "<strong>خبرة تطبيقية ميدانية:</strong> بناء وإدارة مشاريع حقيقية وتقديم الدعم الفني المباشر للعملاء والأنظمة.",
+        langCardTitle: "اللغات والكفاءة",
+        langAr: "اللغة العربية",
+        langArBadge: "اللغة الأم (إتقان تام)",
+        langArDesc: "تواصل مهني متقن، صياغة تقارير وأدلة استخدام وتفاعل ممتاز مع العملاء.",
+        langEn: "اللغة الإنجليزية",
+        langEnBadge: "مبتدئ",
+        langEnDesc: "معرفة تامة بالمصطلحات التقنية والبرمجية، قراءة التوثيقات (Docs)، وكتابة الأوامر.",
+        ctaTitle: "عندك مشروع أو فرصة عمل؟",
+        ctaDesc: "جاهز للتعاون وإنجاز العمل بكفاءة عالية. تواصل معي مباشرة.",
+        footerText: "ياسر محمد البلوي &copy; 2024 — جميع الحقوق محفوظة"
+      },
+      en: {
+        pageTitle: "Yasser Mohammed Albalawi — Web Developer & IT Specialist",
+        logoName: "Yasser",
+        langBtn: "العربية",
+        navAbout: "About",
+        navExp: "Experience",
+        navSkills: "Skills",
+        navEdu: "Education",
+        navContact: "Contact Me",
+        heroBadge: "Available for Work & New Opportunities",
+        heroName: "Yasser Mohammed Albalawi",
+        heroSub: "<strong>Front-End Web Developer</strong> & IT Technical Support Specialist<br>4+ years of hands-on experience building digital platforms, automating workflows, and technical troubleshooting",
+        heroBtnContact: "Contact Me",
+        heroBtnExp: "View My Work",
+        aboutLabel: "About Me",
+        aboutTitle: "Who I Am",
+        aboutP1: "Specialized in technical support, front-end web development, and e-commerce solutions. Over 4 years of practical experience managing operating systems, resolving complex technical challenges, and utilizing AI tools to maximize productivity and workflow efficiency.",
+        aboutP2: "Founded and managed the 't3n' digital platform and store, generating over 10,000 SAR in revenue with 100+ verified positive reviews. Proficient in Discord bot automation, payment gateway integrations, and high-efficiency system optimization.",
+        stat1: "Years Experience",
+        stat2: "Clients",
+        stat3: "Achievements & Revenue",
+        stat4: "Ongoing Support",
+        expLabel: "Experience",
+        expTitle: "Projects & Work Experience",
+        exp1Role: "Founder & Developer — t3n Digital Platform",
+        exp1Meta: "Tabuk, Saudi Arabia | Venture",
+        exp1_1: "Developed and launched an interactive web platform dedicated to rapid, stable delivery of software licenses, files, and technical documentation to buyers.",
+        exp1_2: "Managed store operations via Salla platform, configuring electronic payment gateways (Apple Pay, Mada, Bank Transfers).",
+        exp1_3: "Generated over 10,000 SAR in sales, earning 100+ verified positive reviews highlighting service quality and rapid response.",
+        exp1_4: "Engineered Discord bots and a fully automated ticketing system dispatching instant notifications to streamline user experience.",
+        exp1_5: "Led digital marketing campaigns and content creation on TikTok to drive continuous direct sales.",
+        exp1_6: "Designed user interfaces and authored comprehensive user guides to ensure smooth product onboarding.",
+        exp2Role: "IT Technical Support & System Diagnostics",
+        exp2Meta: "4 Years Experience | Freelance",
+        exp2_1: "Delivered direct technical support to users, assisting with Windows OS optimizations, tuning, and hardware identifier settings (HWID / OS Tweaks).",
+        exp2_2: "Diagnosed and debugged front-end software issues, resolving cross-browser and multi-display compatibility challenges with speed and accuracy.",
+        skillsLabel: "Skills",
+        skillsTitle: "Technical & Operational Skills",
+        sk1Title: "Web Development",
+        sk1Desc: "Building interactive interfaces, editing, debugging, and maintaining clean, efficient codebases.",
+        sk2Title: "Automation & Integrations",
+        sk2Desc: "Programming Discord bots, configuring Webhooks, and building automated tech support workflows.",
+        sk3Title: "E-Commerce",
+        sk3Desc: "Managing Salla stores, payment gateway integration, sales operations, and digital license management.",
+        sk4Title: "AI Engineering Tools",
+        sk4Desc: "Advanced prompt engineering, accelerating software development, and technical problem-solving.",
+        sk5Title: "Digital Marketing",
+        sk5Desc: "Content creation on TikTok, managing tech communities, and moderating Discord servers.",
+        sk6Title: "IT Support & Systems",
+        sk6Desc: "Diagnosing OS issues (Troubleshooting), precision, and rapid incident response.",
+        eduLabel: "Qualifications",
+        eduTitle: "Education & Languages",
+        eduCardTitle: "Education & Qualifications",
+        eduDegree: "High School Diploma",
+        eduLoc: "Tabuk, Saudi Arabia",
+        eduPoint1: "<strong>Continuous Self-Development:</strong> Deep focus on modern web technologies, store operations, and workflow automation.",
+        eduPoint2: "<strong>Applied Hands-On Experience:</strong> Building real-world projects and delivering direct technical support to users and systems.",
+        langCardTitle: "Languages & Proficiency",
+        langAr: "Arabic",
+        langArBadge: "Native (100% Fluent)",
+        langArDesc: "Professional communication, writing documentation and user guides, and client interaction.",
+        langEn: "English",
+        langEnBadge: "Beginner",
+        langEnDesc: "Comprehensive knowledge of technical and programming terminology, reading technical docs, and scripting.",
+        ctaTitle: "Have a Project or Opportunity?",
+        ctaDesc: "Ready to collaborate and deliver high-efficiency results. Get in touch directly.",
+        footerText: "Yasser Mohammed Albalawi &copy; 2024 — All Rights Reserved"
+      }
+    };
+
+    var currentLang = localStorage.getItem('site_lang') || 'ar';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('site_lang', lang);
+
+      // HTML attributes
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      // Page Title
+      document.title = translations[lang].pageTitle;
+
+      // Update all elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+
+      // Update switcher buttons
+      var nextLangLabel = lang === 'ar' ? 'English' : 'العربية';
+      var langBtnText = document.getElementById('langBtnText');
+      if (langBtnText) langBtnText.textContent = nextLangLabel;
+      var moLangBtnText = document.getElementById('moLangBtnText');
+      if (moLangBtnText) moLangBtnText.textContent = nextLangLabel;
+    }
+
+    function toggleLanguage() {
+      setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+    }
+
+    // Initialize saved language
+    setLanguage(currentLang);
   </script>
 </body>
 </html>
