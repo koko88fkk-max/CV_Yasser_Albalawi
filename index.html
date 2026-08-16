@@ -487,11 +487,11 @@
       margin: 14px auto 0;
     }
 
-    /* ── ABOUT ── */
+    /* ── ABOUT & STAT CARDS ── */
     .ab-g {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 40px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 36px;
       align-items: center;
     }
 
@@ -514,41 +514,37 @@
 
     .num-c {
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 22px 20px;
       background: var(--card);
-      text-align: right;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
 
-    html[dir="ltr"] .num-c {
-      text-align: left;
-    }
-
-    .num-c::before {
+    .num-c::after {
       content: '';
       position: absolute;
       top: 0;
       right: 0;
       left: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
       opacity: 0;
       transition: opacity 0.25s ease;
     }
 
     .num-c:hover {
-      border-color: #93c5fd;
-      box-shadow: 0 12px 28px -6px rgba(59, 130, 246, 0.12), 0 6px 12px -4px rgba(0, 0, 0, 0.03);
-      transform: translateY(-3px);
+      border-color: #bfdbfe;
+      box-shadow: 0 16px 36px -8px rgba(37, 99, 235, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+      transform: translateY(-4px);
     }
 
-    .num-c:hover::before {
+    .num-c:hover::after {
       opacity: 1;
     }
 
@@ -556,66 +552,84 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .num-ic {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
       background: #eff6ff;
       border: 1px solid #dbeafe;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-dim);
-      transition: all 0.25s var(--ease);
+      color: var(--accent);
+      transition: all 0.25s ease;
     }
 
     .num-c:hover .num-ic {
       background: var(--accent);
       border-color: var(--accent);
       color: #ffffff;
-      transform: scale(1.05);
+      transform: scale(1.06);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
     .num-ic svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .num-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-dim);
+      background: #f0fdf4;
+      border: 1px solid #dcfce7;
+      color: #15803d;
+      padding: 3px 8px;
+      border-radius: 6px;
     }
 
     .num-v {
-      font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', sans-serif;
-      font-size: 32px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 34px;
       font-weight: 800;
-      color: var(--accent-dim);
+      color: var(--t5);
       letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 4px;
-      display: flex;
+      line-height: 1;
+      margin-bottom: 6px;
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      display: inline-flex;
       align-items: baseline;
-      gap: 2px;
+      gap: 1px;
     }
 
-    .num-plus {
-      font-size: 22px;
-      font-weight: 700;
+    .num-digit {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .num-plus, .num-unit, .num-slash {
       color: var(--accent);
+      font-weight: 800;
+      font-size: 26px;
     }
 
     .num-l {
-      font-size: 13.5px;
+      font-size: 14.5px;
       color: var(--t5);
       font-weight: 800;
-      margin-bottom: 2px;
-      line-height: 1.3;
+      margin-bottom: 3px;
+      line-height: 1.35;
     }
 
     .num-sub {
-      font-size: 11.5px;
+      font-size: 12px;
       color: var(--t4);
       font-weight: 500;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     /* ── EXPERIENCE TIMELINE ── */
@@ -1397,9 +1411,12 @@
               <div class="num-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
               </div>
+              <span class="num-tag">خبرة عملية</span>
             </div>
             <div>
-              <div class="num-v">4<span class="num-plus">+</span></div>
+              <div class="num-v" dir="ltr">
+                <span class="num-digit">4</span><span class="num-plus">+</span>
+              </div>
               <div class="num-l" data-i18n="stat1Title">سنوات خبرة</div>
               <div class="num-sub" data-i18n="stat1Sub">في تطوير الويب والدعم الفني</div>
             </div>
@@ -1411,9 +1428,12 @@
               <div class="num-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </div>
+              <span class="num-tag">تقييم موثق</span>
             </div>
             <div>
-              <div class="num-v">100<span class="num-plus">+</span></div>
+              <div class="num-v" dir="ltr">
+                <span class="num-digit">100</span><span class="num-plus">+</span>
+              </div>
               <div class="num-l" data-i18n="stat2Title">عميل موثق</div>
               <div class="num-sub" data-i18n="stat2Sub">تقييمات إيجابية معتمدة</div>
             </div>
@@ -1425,9 +1445,12 @@
               <div class="num-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               </div>
+              <span class="num-tag">منصة t3n</span>
             </div>
             <div>
-              <div class="num-v">10<span class="num-plus">K+</span></div>
+              <div class="num-v" dir="ltr">
+                <span class="num-digit">10K</span><span class="num-plus">+</span>
+              </div>
               <div class="num-l" data-i18n="stat3Title">ريال مبيعات وإنجاز</div>
               <div class="num-sub" data-i18n="stat3Sub">عبر متجر ومنصة t3n</div>
             </div>
@@ -1439,9 +1462,12 @@
               <div class="num-ic">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
+              <span class="num-tag">جاهزية دائمة</span>
             </div>
             <div>
-              <div class="num-v">24<span class="num-plus">/7</span></div>
+              <div class="num-v" dir="ltr">
+                <span class="num-digit">24</span><span class="num-slash">/</span><span class="num-digit">7</span>
+              </div>
               <div class="num-l" data-i18n="stat4Title">استجابة ودعم مستمر</div>
               <div class="num-sub" data-i18n="stat4Sub">جاهزية لحل المشكلات</div>
             </div>
