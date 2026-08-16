@@ -10,9 +10,6 @@ desktop.ini
 .vscode/
 .idea/
 
-# PDF source
-*.pdf
-
 # Temp files
 *.log
 *.tmp

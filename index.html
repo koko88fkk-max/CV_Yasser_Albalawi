@@ -395,10 +395,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 13px 28px;
-      border-radius: 8px;
+      padding: 12px 24px;
+      border-radius: 100px;
       font-family: inherit;
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
@@ -412,25 +412,46 @@
     }
 
     .b1 {
-      background: var(--accent);
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
       color: #ffffff;
-      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
     }
 
     .b1:hover {
-      background: #2563eb;
+      background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(59, 130, 246, 0.5);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.55);
+    }
+
+    .b-cv {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    .b-cv:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .b-cv svg {
+      transition: transform 0.25s ease;
+    }
+
+    .b-cv:hover svg {
+      transform: translateY(2px);
     }
 
     .b2 {
-      background: rgba(255, 255, 255, 0.05);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--t2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .b2:hover {
-      background: rgba(255, 255, 255, 0.1);
       border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
     }
@@ -1216,32 +1237,135 @@
     }
 
     .ct-c {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 8px;
-      padding: 13px 22px;
+      border-radius: 100px;
+      padding: 10px 20px;
       color: #ffffff;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       transition: all 0.25s var(--ease);
+      position: relative;
     }
 
     .ct-c:hover {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(59, 130, 246, 0.5);
       color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 4px 18px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
     }
 
     .ct-c svg {
-      width: 17px;
-      height: 17px;
-      opacity: 0.8;
+      width: 16px;
+      height: 16px;
+      opacity: 0.9;
+    }
+
+    .ct-main-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .ct-copy-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-right: 4px;
+      transition: all 0.2s ease;
+    }
+
+    html[dir="ltr"] .ct-copy-btn {
+      margin-right: 0;
+      margin-left: 4px;
+    }
+
+    .ct-copy-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    .ct-copy-btn svg {
+      width: 13px;
+      height: 13px;
+      opacity: 1;
+    }
+
+    .ct-wa {
+      background: rgba(37, 211, 102, 0.12);
+      border-color: rgba(37, 211, 102, 0.3);
+      color: #4ade80;
+    }
+
+    .ct-wa:hover {
+      background: #25d366;
+      border-color: #25d366;
+      color: #ffffff;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.4);
+    }
+
+    .ct-cv {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.25));
+      border-color: rgba(59, 130, 246, 0.4);
+      color: #ffffff;
+    }
+
+    .ct-cv:hover {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      border-color: #2563eb;
+      box-shadow: 0 6px 22px rgba(59, 130, 246, 0.5);
+    }
+
+    /* ── TOAST NOTIFICATION ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      z-index: 999;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 100px;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: all;
+    }
+
+    .toast svg {
+      width: 16px;
+      height: 16px;
+      color: #22c55e;
     }
 
     /* ── FOOTER ── */
@@ -1430,6 +1554,10 @@
         <a href="#cta" class="b b1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
           <span data-i18n="heroBtnContact">تواصل معي</span>
+        </a>
+        <a href="CV_Yasser_Albalawi.pdf" download="CV_Yasser_Albalawi.pdf" class="b b-cv">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="heroBtnCV">تحميل السيرة الذاتية (PDF)</span>
         </a>
         <a href="#exp" class="b b2">
           <span data-i18n="heroBtnExp">استعرض خبراتي</span>
@@ -1855,21 +1983,54 @@
       <h2 class="cta-t" data-i18n="ctaTitle">عندك مشروع أو فرصة عمل؟</h2>
       <p class="cta-p" data-i18n="ctaDesc">جاهز للتعاون وإنجاز العمل بكفاءة عالية. تواصل معي مباشرة.</p>
       <div class="ct-cards">
-        <a href="mailto:yasemoh24@gmail.com" class="ct-c">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
-          <span>yasemoh24@gmail.com</span>
+        <!-- Email with Copy Button -->
+        <div class="ct-c">
+          <a href="mailto:yasemoh24@gmail.com" class="ct-main-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+            <span>yasemoh24@gmail.com</span>
+          </a>
+          <button class="ct-copy-btn" onclick="copyText('yasemoh24@gmail.com', 'email')" aria-label="نسخ البريد الإلكتروني" title="نسخ البريد">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+
+        <!-- Phone with Copy Button -->
+        <div class="ct-c">
+          <a href="tel:0506932102" class="ct-main-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span style="direction: ltr;">0506932102</span>
+          </a>
+          <button class="ct-copy-btn" onclick="copyText('0506932102', 'phone')" aria-label="نسخ رقم الهاتف" title="نسخ الرقم">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+
+        <!-- WhatsApp Direct -->
+        <a href="https://wa.me/966506932102" target="_blank" rel="noopener noreferrer" class="ct-c ct-wa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span data-i18n="ctWhatsApp">واتساب مباشر</span>
         </a>
-        <a href="tel:0506932102" class="ct-c">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span style="direction: ltr;">0506932102</span>
-        </a>
+
+        <!-- Website Link -->
         <a href="https://t3nnn.com" target="_blank" rel="noopener noreferrer" class="ct-c">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
           <span>t3nnn.com</span>
         </a>
+
+        <!-- Download CV PDF in Contact Section -->
+        <a href="CV_Yasser_Albalawi.pdf" download="CV_Yasser_Albalawi.pdf" class="ct-c ct-cv">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="heroBtnCV">تحميل السيرة الذاتية (PDF)</span>
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    <span id="toastMsg">تم نسخ البريد بنجاح ✓</span>
+  </div>
 
   <!-- JAVASCRIPT & BILINGUAL ENGINE -->
   <script>
@@ -1887,6 +2048,48 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
     document.querySelectorAll('.rv').forEach(function(el) { obs.observe(el); });
 
+    // ── COPY TO CLIPBOARD + TOAST ──
+    function copyText(text, type) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showToast).catch(fallbackCopy);
+      } else {
+        fallbackCopy();
+      }
+
+      function fallbackCopy() {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+          document.execCommand('copy');
+          showToast();
+        } catch (err) {}
+        textArea.remove();
+      }
+
+      function showToast() {
+        var toast = document.getElementById('toast');
+        var toastMsg = document.getElementById('toastMsg');
+        var isAr = currentLang === 'ar';
+        if (type === 'email') {
+          toastMsg.textContent = isAr ? 'تم نسخ البريد الإلكتروني بنجاح ✓' : 'Email copied to clipboard ✓';
+        } else if (type === 'phone') {
+          toastMsg.textContent = isAr ? 'تم نسخ رقم الهاتف بنجاح ✓' : 'Phone number copied to clipboard ✓';
+        } else {
+          toastMsg.textContent = isAr ? 'تم النسخ بنجاح ✓' : 'Copied to clipboard ✓';
+        }
+        toast.classList.add('show');
+        clearTimeout(window.toastTimer);
+        window.toastTimer = setTimeout(function() {
+          toast.classList.remove('show');
+        }, 2600);
+      }
+    }
+
     // ── BILINGUAL TRANSLATIONS DICTIONARY ──
     var translations = {
       ar: {
@@ -1902,7 +2105,9 @@
         heroName: "ياسر محمد البلوي",
         heroSub: "<strong>مطوّر واجهات ويب</strong> وأخصائي دعم فني وتقنية معلومات<br>خبرة تزيد عن 4 سنوات في بناء المنصات الرقمية، أتمتة العمليات، وحل المشكلات التقنية",
         heroBtnContact: "تواصل معي",
+        heroBtnCV: "تحميل السيرة الذاتية (PDF)",
         heroBtnExp: "استعرض خبراتي",
+        ctWhatsApp: "واتساب مباشر",
         aboutLabel: "نبذة عني",
         aboutTitle: "من أنا",
         aboutP1: "متخصص في الدعم الفني وتطوير واجهات الويب وحلول التجارة الإلكترونية. أمتلك خبرة عملية لأكثر من 4 سنوات في التعامل مع أنظمة التشغيل وحل المشكلات التقنية وتوظيف أدوات الذكاء الاصطناعي لرفع كفاءة وسرعة العمل.",
@@ -1919,16 +2124,16 @@
         expTitle: "المشاريع والخبرات العملية",
         exp1Role: "مؤسس ومطوّر متجر ومنصة t3n الرقمية",
         exp1Meta: "تبوك، السعودية | مشروع ريادي",
-        exp1_1: "تطوير وإطلاق منصة ويب تفاعلية مخصصة لتسليم التراخيص البرمجية والملفات والشروحات الفنية للمشترين بسرعة واستقرار.",
-        exp1_2: "إدارة متجر الشراء والعمليات عبر منصة سلة، وتهيئة بوابات الدفع الإلكتروني (Apple Pay، مدى، التحويلات البنكية).",
-        exp1_3: "تحقيق مبيعات تجاوزت 10,000 ريال سعودي ونيل أكثر من 100 تقييم إيجابي موثق يبرز جودة الخدمة وسرعة الاستجابة.",
-        exp1_4: "برمجة وتطوير بوتات Discord ونظام تذاكر دعم فني مؤتمت بالكامل يرسل إشعارات فورية لتقليل التدخل اليدوي وتسهيل تجربة العميل.",
-        exp1_5: "قيادة الحملات التسويقية وصناعة المحتوى الرقمي عبر TikTok لجذب العملاء وتحقيق مبيعات مباشرة ومستمرة.",
-        exp1_6: "تصميم واجهات المستخدم وكتابة أدلة الاستخدام التوثيقية لضمان سهولة تشغيل المنتجات.",
+        exp1_1: "<strong>تطوير وإطلاق منصة ويب تفاعلية:</strong> مخصصة لتسليم التراخيص البرمجية والملفات والشروحات الفنية للمشترين بسرعة واستقرار.",
+        exp1_2: "<strong>إدارة متجر وعمليات سلة:</strong> تهيئة بوابات الدفع الإلكتروني (Apple Pay، مدى، التحويلات البنكية) ومتابعة الطلبات.",
+        exp1_3: "<strong>أداء مالي وتجربة مستخدم متميزة:</strong> تحقيق مبيعات تجاوزت 10,000 ريال سعودي بأكثر من 100 تقييم إيجابي موثق.",
+        exp1_4: "<strong>أتمتة الدعم الفني عبر Discord:</strong> برمجة وتطوير بوتات ذكية ونظام تذاكر مؤتمت بالكامل يرسل إشعارات فورية.",
+        exp1_5: "<strong>التسويق الرقمي وصناعة المحتوى:</strong> قيادة الحملات التسويقية عبر TikTok لجذب العملاء وتحقيق مبيعات مباشرة ومستمرة.",
+        exp1_6: "<strong>تصميم واجهات المستخدم (UI/UX):</strong> كتابة أدلة الاستخدام التوثيقية لضمان سهولة تشغيل المنتجات.",
         exp2Role: "الدعم الفني وتشخيص أنظمة الحاسب",
         exp2Meta: "خبرة 4 سنوات | عمل حر ومستقل",
-        exp2_1: "تقديم الدعم التقني المباشر للمستخدمين ومساعدتهم في ضبط إعدادات أنظمة Windows ومعرّفات الأجهزة (HWID / OS Tweaks).",
-        exp2_2: "فحص وتصحيح الأخطاء البرمجية للواجهات (Debugging) ومعالجة مشاكل التوافق عبر المتصفحات والشاشات بكفاءة وسرعة.",
+        exp2_1: "<strong>الدعم التقني المباشر للمستخدمين:</strong> مساعدتهم في ضبط إعدادات أنظمة Windows ومعرّفات الأجهزة (HWID / OS Tweaks).",
+        exp2_2: "<strong>فحص وتصحيح الأخطاء البرمجية (Debugging):</strong> معالجة مشاكل التوافق عبر المتصفحات والشاشات بكفاءة وسرعة.",
         skillsLabel: "المهارات",
         skillsTitle: "المهارات التقنية والتشغيلية",
         sk1Title: "تطوير الويب",
@@ -1974,7 +2179,9 @@
         heroName: "Yasser Mohammed Albalawi",
         heroSub: "<strong>Front-End Web Developer</strong> & IT Technical Support Specialist<br>4+ years of hands-on experience building digital platforms, automating workflows, and technical troubleshooting",
         heroBtnContact: "Contact Me",
+        heroBtnCV: "Download CV (PDF)",
         heroBtnExp: "View My Work",
+        ctWhatsApp: "Direct WhatsApp",
         aboutLabel: "About Me",
         aboutTitle: "Who I Am",
         aboutP1: "Specialized in technical support, front-end web development, and e-commerce solutions. Over 4 years of practical experience managing operating systems, resolving complex technical challenges, and utilizing AI tools to maximize productivity and workflow efficiency.",
