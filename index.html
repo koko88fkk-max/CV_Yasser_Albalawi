@@ -859,89 +859,144 @@
       font-weight: 700;
     }
 
-    /* ── SKILLS ── */
+    /* ── SKILLS SECTION ── */
     .sk-g {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 20px;
     }
 
     .sk-c {
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 26px 22px;
       background: var(--card);
       position: relative;
       overflow: hidden;
-      transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
 
-    .sk-c::after {
+    .sk-c::before {
       content: '';
       position: absolute;
       top: 0;
       right: 0;
-      width: 3.5px;
-      height: 0;
-      background: var(--accent);
-      transition: height 0.35s var(--ease);
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
     }
 
-    html[dir="ltr"] .sk-c::after {
-      right: auto;
-      left: 0;
+    html[dir="ltr"] .sk-c::before {
+      transform-origin: left;
     }
 
     .sk-c:hover {
-      border-color: #93c5fd;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px var(--accent-glow);
+      border-color: #bfdbfe;
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px -8px rgba(37, 99, 235, 0.12), 0 4px 14px rgba(0, 0, 0, 0.03);
     }
 
-    .sk-c:hover::after {
-      height: 100%;
+    .sk-c:hover::before {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .sk-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
     }
 
     .sk-ic {
       width: 44px;
       height: 44px;
-      border-radius: 10px;
+      border-radius: 12px;
       background: #eff6ff;
       border: 1px solid #dbeafe;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
-      transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .sk-c:hover .sk-ic {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      border-color: #2563eb;
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
     }
 
     .sk-ic svg {
       width: 22px;
       height: 22px;
-      color: var(--accent-dim);
-      transition: color 0.25s var(--ease);
+      color: var(--accent);
+      transition: color 0.25s ease;
     }
 
     .sk-c:hover .sk-ic svg {
       color: #ffffff;
     }
 
+    .sk-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-dim);
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+
     .sk-c h3 {
-      font-size: 15.5px;
+      font-size: 16px;
       font-weight: 800;
       color: var(--t5);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      line-height: 1.35;
     }
 
     .sk-c p {
-      font-size: 13px;
-      color: var(--t4);
-      line-height: 1.6;
+      font-size: 13.5px;
+      color: var(--t6);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+
+    .sk-tags {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .sk-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--t6);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .sk-c:hover .sk-tag {
+      background: #eff6ff;
+      border-color: #dbeafe;
+      color: var(--accent-dim);
     }
 
     /* ── EDUCATION & LANGUAGES ── */
@@ -1557,94 +1612,153 @@
       <div class="sk-g">
         <!-- 1. تطوير الويب -->
         <div class="sk-c rv rv-d1">
-          <div class="sk-ic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="18" rx="4"/>
-              <path d="M2 8h20"/>
-              <circle cx="5.5" cy="5.5" r="0.8" fill="currentColor"/>
-              <circle cx="8.5" cy="5.5" r="0.8" fill="currentColor"/>
-              <path d="m8 13-2 2 2 2"/>
-              <path d="m16 13 2 2-2 2"/>
-              <path d="m13 12-2 6"/>
-            </svg>
+          <div>
+            <div class="sk-top">
+              <div class="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="18" rx="4"/>
+                  <path d="M2 8h20"/>
+                  <circle cx="5.5" cy="5.5" r="0.8" fill="currentColor"/>
+                  <circle cx="8.5" cy="5.5" r="0.8" fill="currentColor"/>
+                  <path d="m8 13-2 2 2 2"/>
+                  <path d="m16 13 2 2-2 2"/>
+                  <path d="m13 12-2 6"/>
+                </svg>
+              </div>
+              <span class="sk-badge">Frontend &amp; Code</span>
+            </div>
+            <h3 data-i18n="sk1Title">تطوير الويب</h3>
+            <p data-i18n="sk1Desc">بناء الواجهات التفاعلية، تعديل وتصحيح الأكواد البرمجية وصيانتها بكفاءة واحترافية.</p>
           </div>
-          <h3 data-i18n="sk1Title">تطوير الويب</h3>
-          <p data-i18n="sk1Desc">بناء الواجهات التفاعلية، تعديل وتصحيح الأكواد البرمجية وصيانتها بكفاءة واحترافية.</p>
+          <div class="sk-tags">
+            <span class="sk-tag">HTML5</span>
+            <span class="sk-tag">CSS3</span>
+            <span class="sk-tag">JavaScript</span>
+            <span class="sk-tag">Responsive UI</span>
+          </div>
         </div>
 
         <!-- 2. الأتمتة والربط الرقمي -->
         <div class="sk-c rv rv-d2">
-          <div class="sk-ic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="6" height="6" rx="1.5"/>
-              <rect x="15" y="3" width="6" height="6" rx="1.5"/>
-              <rect x="9" y="15" width="6" height="6" rx="1.5"/>
-              <path d="M6 9v2.5a3.5 3.5 0 0 0 3.5 3.5H12"/>
-              <path d="M18 9v2.5a3.5 3.5 0 0 1-3.5 3.5H12"/>
-              <path d="M12 12v3"/>
-            </svg>
+          <div>
+            <div class="sk-top">
+              <div class="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="6" height="6" rx="1.5"/>
+                  <rect x="15" y="3" width="6" height="6" rx="1.5"/>
+                  <rect x="9" y="15" width="6" height="6" rx="1.5"/>
+                  <path d="M6 9v2.5a3.5 3.5 0 0 0 3.5 3.5H12"/>
+                  <path d="M18 9v2.5a3.5 3.5 0 0 1-3.5 3.5H12"/>
+                  <path d="M12 12v3"/>
+                </svg>
+              </div>
+              <span class="sk-badge">Bots &amp; API</span>
+            </div>
+            <h3 data-i18n="sk2Title">الأتمتة والربط الرقمي</h3>
+            <p data-i18n="sk2Desc">برمجة بوتات Discord، إعداد Webhooks، وبناء أنظمة الدعم الفني المؤتمتة.</p>
           </div>
-          <h3 data-i18n="sk2Title">الأتمتة والربط الرقمي</h3>
-          <p data-i18n="sk2Desc">برمجة بوتات Discord، إعداد Webhooks، وبناء أنظمة الدعم الفني المؤتمتة.</p>
+          <div class="sk-tags">
+            <span class="sk-tag">Discord API</span>
+            <span class="sk-tag">Webhooks</span>
+            <span class="sk-tag">Ticketing Bots</span>
+          </div>
         </div>
 
         <!-- 3. التجارة الإلكترونية -->
         <div class="sk-c rv rv-d3">
-          <div class="sk-ic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-              <path d="M3 6h18"/>
-              <path d="M16 10a4 4 0 0 1-8 0"/>
-              <path d="m9 14.5 2 2 4-4"/>
-            </svg>
+          <div>
+            <div class="sk-top">
+              <div class="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                  <path d="M3 6h18"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                  <path d="m9 14.5 2 2 4-4"/>
+                </svg>
+              </div>
+              <span class="sk-badge">Salla &amp; Stores</span>
+            </div>
+            <h3 data-i18n="sk3Title">التجارة الإلكترونية</h3>
+            <p data-i18n="sk3Desc">إدارة متاجر سلة، الربط مع بوابات الدفع، وإدارة المبيعات والتراخيص الرقمية.</p>
           </div>
-          <h3 data-i18n="sk3Title">التجارة الإلكترونية</h3>
-          <p data-i18n="sk3Desc">إدارة متاجر سلة، الربط مع بوابات الدفع، وإدارة المبيعات والتراخيص الرقمية.</p>
+          <div class="sk-tags">
+            <span class="sk-tag">منصة سلة</span>
+            <span class="sk-tag">Apple Pay &amp; مدى</span>
+            <span class="sk-tag">التراخيص الرقمية</span>
+          </div>
         </div>
 
         <!-- 4. أدوات الذكاء الاصطناعي -->
         <div class="sk-c rv rv-d1">
-          <div class="sk-ic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
-              <path d="M5 3v3"/>
-              <path d="M3.5 4.5h3"/>
-              <path d="M19 17v3"/>
-              <path d="M17.5 18.5h3"/>
-            </svg>
+          <div>
+            <div class="sk-top">
+              <div class="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/>
+                  <path d="M5 3v3"/>
+                  <path d="M3.5 4.5h3"/>
+                  <path d="M19 17v3"/>
+                  <path d="M17.5 18.5h3"/>
+                </svg>
+              </div>
+              <span class="sk-badge">AI &amp; Workflows</span>
+            </div>
+            <h3 data-i18n="sk4Title">أدوات الذكاء الاصطناعي</h3>
+            <p data-i18n="sk4Desc">هندسة الأوامر (Prompting) وتسريع كتابة البرمجيات وحل المشكلات التقنية.</p>
           </div>
-          <h3 data-i18n="sk4Title">أدوات الذكاء الاصطناعي</h3>
-          <p data-i18n="sk4Desc">هندسة الأوامر (Prompting) وتسريع كتابة البرمجيات وحل المشكلات التقنية.</p>
+          <div class="sk-tags">
+            <span class="sk-tag">Prompt Engineering</span>
+            <span class="sk-tag">Code Acceleration</span>
+          </div>
         </div>
 
         <!-- 5. التسويق الرقمي -->
         <div class="sk-c rv rv-d2">
-          <div class="sk-ic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m3 11 18-5v12L3 14v-3z"/>
-              <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
-              <path d="M3 11v3"/>
-              <path d="M18 6v12"/>
-              <path d="M21 9a3.5 3.5 0 0 1 0 6"/>
-            </svg>
+          <div>
+            <div class="sk-top">
+              <div class="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m3 11 18-5v12L3 14v-3z"/>
+                  <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+                  <path d="M3 11v3"/>
+                  <path d="M18 6v12"/>
+                  <path d="M21 9a3.5 3.5 0 0 1 0 6"/>
+                </svg>
+              </div>
+              <span class="sk-badge">Growth &amp; Media</span>
+            </div>
+            <h3 data-i18n="sk5Title">التسويق الرقمي</h3>
+            <p data-i18n="sk5Desc">صناعة المحتوى على TikTok وإدارة المجتمعات التقنية وسيرفرات Discord.</p>
           </div>
-          <h3 data-i18n="sk5Title">التسويق الرقمي</h3>
-          <p data-i18n="sk5Desc">صناعة المحتوى على TikTok وإدارة المجتمعات التقنية وسيرفرات Discord.</p>
+          <div class="sk-tags">
+            <span class="sk-tag">TikTok Content</span>
+            <span class="sk-tag">Community Management</span>
+          </div>
         </div>
 
         <!-- 6. الدعم الفني والأنظمة -->
         <div class="sk-c rv rv-d3">
-          <div class="sk-ic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="3"/>
-              <path d="M8 21h8"/>
-              <path d="M12 17v4"/>
-              <path d="m7 8 2.5 2.5L7 13"/>
-              <path d="M12.5 13h4"/>
-            </svg>
+          <div>
+            <div class="sk-top">
+              <div class="sk-ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="3"/>
+                  <path d="M8 21h8"/>
+                  <path d="M12 17v4"/>
+                  <path d="m7 8 2.5 2.5L7 13"/>
+                  <path d="M12.5 13h4"/>
+                </svg>
+              </div>
+              <span class="sk-badge">OS &amp; Hardware</span>
+            </div>
+            <h3 data-i18n="sk6Title">الدعم الفني والأنظمة</h3>
+            <p data-i18n="sk6Desc">تشخيص أعطال الأنظمة (Troubleshooting)، الدقة والسرعة في الاستجابة والحل.</p>
           </div>
-          <h3 data-i18n="sk6Title">الدعم الفني والأنظمة</h3>
-          <p data-i18n="sk6Desc">تشخيص أعطال الأنظمة (Troubleshooting)، الدقة والسرعة في الاستجابة والحل.</p>
+          <div class="sk-tags">
+            <span class="sk-tag">Windows OS</span>
+            <span class="sk-tag">HWID Tweaks</span>
+            <span class="sk-tag">Troubleshooting</span>
+          </div>
         </div>
       </div>
     </div>
