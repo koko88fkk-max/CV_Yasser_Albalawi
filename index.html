@@ -103,16 +103,20 @@
     .n-side {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       z-index: 2;
     }
 
     .n-side-start {
-      min-width: 150px;
+      display: flex;
+      align-items: center;
+      padding: 0 6px;
     }
 
     .n-side-end {
-      min-width: 150px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       justify-content: flex-end;
     }
 
@@ -1298,14 +1302,6 @@
     <nav class="n-island" id="nv">
       <div class="n-side n-side-start">
         <a href="#" class="n-l"><span data-i18n="logoName">ياسر</span><span>.</span></a>
-        <!-- Language Switcher Desktop -->
-        <button id="langBtn" class="n-lang" onclick="toggleLanguage()" aria-label="تبديل اللغة / Switch Language">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/>
-          </svg>
-          <span id="langBtnText">English</span>
-        </button>
       </div>
 
       <ul class="n-r">
@@ -1316,6 +1312,14 @@
       </ul>
 
       <div class="n-side n-side-end">
+        <!-- Language Switcher Desktop -->
+        <button id="langBtn" class="n-lang" onclick="toggleLanguage()" aria-label="تبديل اللغة / Switch Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/>
+          </svg>
+          <span id="langBtnText">English</span>
+        </button>
         <a href="#cta" class="n-cta" data-i18n="navContact">تواصل معي</a>
       </div>
 
