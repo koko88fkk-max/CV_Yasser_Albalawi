@@ -9,6 +9,7 @@
   <meta property="og:description" content="مطوّر واجهات ويب وأخصائي دعم فني — خبرة +4 سنوات في التقنية والمنصات الرقمية">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cv-yasser-albalawi.vercel.app/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><path d='M11 11L6 16l5 5M21 11l5 5-5 5M18 9l-4 14' stroke='%233b82f6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1367,6 +1368,59 @@
       flex-shrink: 0;
     }
 
+    /* ── SCROLL TO TOP BUTTON ── */
+    .s-top {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 90;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background 0.2s ease, border-color 0.2s ease;
+    }
+
+    html[dir="ltr"] .s-top {
+      left: auto;
+      right: 28px;
+    }
+
+    .s-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .s-top:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(59, 130, 246, 0.45);
+    }
+
+    .s-top svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .s-top:hover svg {
+      transform: translateY(-2px);
+    }
+
     /* ── FOOTER ── */
     .ft {
       background: #060911;
@@ -2033,12 +2087,21 @@
     <span id="toastMsg">تم نسخ البريد الإلكتروني بنجاح</span>
   </div>
 
+  <!-- SCROLL TO TOP BUTTON -->
+  <button class="s-top" id="sTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="العودة لأعلى الصفحة / Scroll to top" title="العودة للأعلى">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
   <!-- JAVASCRIPT & BILINGUAL ENGINE -->
   <script>
-    // ── SCROLL NAVBAR ──
+    // ── SCROLL NAVBAR & SCROLL TO TOP ──
     var nv = document.getElementById('nv');
+    var sTopBtn = document.getElementById('sTopBtn');
     window.addEventListener('scroll', function() {
       nv.classList.toggle('s', window.scrollY > 40);
+      if (sTopBtn) sTopBtn.classList.toggle('show', window.scrollY > 350);
     });
 
     // ── SCROLL REVEAL (Natural & Subtle) ──
